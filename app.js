@@ -1,44 +1,62 @@
 
 let scoreOne = document.querySelector('.score_one');
-let wrapper = document.querySelector('.wrapper')
 let scoreTwo = document.querySelector('.score_two');
 let rock = document.querySelector('.rock');
 let paper = document.querySelector('.paper');
 let scissors = document.querySelector('.scissors');
 let playerScore = document.querySelector('.score__player');
 let computerScore = document.querySelector('.score__computer');
-let winner = ''
 let playerSelection = '';
+let restart = document.querySelector('.restart')
 let computerSelection = getComputerChoice ();
-let gameOver = `
-<div class = "gameOver">
-<span class = "winner_text">Game over</span>
-<button class = "btn_restart">Restart</button>
-</div>
-`
-
-
 console.log(computerSelection)
 
-rock.addEventListener('click', () => {
-    playerSelection = 'rock';
-    game(playerSelection, computerSelection)
-}
-) 
-paper.addEventListener('click', () => {
-    playerSelection = 'paper';
-    game(playerSelection, computerSelection)
-}
-)
-scissors.addEventListener('click', () => {
-    playerSelection = 'scissors';
-    game(playerSelection, computerSelection)} );
+game()
+function restartGame(){
 
+}
+function restartGame() {
+    playerScore.textContent = 0;
+    computerScore.textContent = 0;
+    playerSelection = '';
+    computerSelection = getComputerChoice();
+  }
+  
+function game() {
+    rock.addEventListener('click', () => {
+      playerSelection = 'rock';
+      playRound(playerSelection, computerSelection);
+  
+      if (playerScore.innerHTML == 5 || computerScore.innerHTML == 5) {
+       setTimeout(()=>{restartGame()},1300) ;
+      }
+    });
+  
+    paper.addEventListener('click', () => {
+      playerSelection = 'paper';
+      playRound(playerSelection, computerSelection);
+  
+      if (playerScore.innerHTML == 5 || computerScore.innerHTML == 5) {
+        setTimeout(()=>{restartGame()},2000)
+      }
+    });
+  
+    scissors.addEventListener('click', () => {
+      playerSelection = 'scissors';
+      playRound(playerSelection, computerSelection);
+  
+      if (playerScore.innerHTML == 5 || computerScore.innerHTML == 5) {
+        setTimeout(()=>{restartGame()},2000)
+      }
+    });
+  }
+  
 
 function refreshComputerSelection(){
     computerSelection = getComputerChoice()
     console.log(computerSelection)
 }
+
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -54,52 +72,51 @@ function getComputerChoice () {
     }
 }
 
-function game(playerSelection, computerSelection){
-    if(playerScore.innerHTML == 5){
-        playerScore.textContent = 0;
-        computerScore.textContent = 0;
-        winner = `You win!`
-        wrapper.innerHTML = gameOver;
-     }
-    else if(computerScore.innerHTML == 5){
-        playerScore.textContent = 0;
-        computerScore.textContent = 0;
-        winner =` You lose!`
-        wrapper.innerHTML = gameOver;
-    }
-
-        playRound(playerSelection, computerSelection)
-}
-
 
 
 function playRound(playerSelection, computerSelection) {
-    if(playerSelection === computerSelection){
+
+     if(playerScore.innerHTML == 5){
+        if(playerScore.innerHTML == 5){
+            playerScore.textContent = 0;
+            computerScore.textContent = 0;
+            wrapper.innerHTML = gameOver;
+            console.log('player win');
+            
+         }
+        else if(computerScore.innerHTML == 5){
+            playerScore.textContent = 0;
+            computerScore.textContent = 0;
+            wrapper.innerHTML = gameOver;
+            console.log('computer win');
+            
+        }
+    }
+    else if(playerSelection === computerSelection){
         refreshComputerSelection()
-       
     }
     else if(playerSelection === 'rock' && computerSelection === 'scissors'){
-        playerScore.innerHTML++
+        ++playerScore.innerHTML
         refreshComputerSelection()
        
     }  else if(playerSelection === 'scissors' && computerSelection === 'paper'){
-        playerScore.innerHTML++
+        ++playerScore.innerHTML
         refreshComputerSelection()
     }
       else if(playerSelection === 'paper' && computerSelection === 'rock'){
-        playerScore.innerHTML++
+        ++playerScore.innerHTML
         refreshComputerSelection()
     }
       else if(playerSelection === 'rock' && computerSelection === 'paper'){
-        computerScore.innerHTML++
+        ++computerScore.innerHTML
         refreshComputerSelection()
     }
       else if(playerSelection === 'paper' && computerSelection === 'scissors'){
-        computerScore.innerHTML++
+        ++computerScore.innerHTML
         refreshComputerSelection()
     }
       else if(playerSelection === 'scissors' && computerSelection === 'rock'){
-        computerScore.innerHTML++
+        ++computerScore.innerHTML
         refreshComputerSelection()
     }
 }
