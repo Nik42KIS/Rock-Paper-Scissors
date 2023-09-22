@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GAME</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="wrapper">
-        <div class="restart"></div>
-        <div class="score">You: <span class="score__player">0</span> : Computer:  <span class="score__computer">0</span></div>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="wrapper">
+      <div class="score">
+        <div class="player">You:<span class="score__player">0</span></div>
+        <div class="computer">Computer:<span class="score__computer">0</span></div>
+      </div>
+      <div class="chooze">
         <button class="rock">Rock</button>
         <button class="paper">Paper</button>
         <button class="scissors">Scissors</button>
-    </div>
+      </div>
+    </main>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
