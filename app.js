@@ -12,9 +12,7 @@ let computerSelection = getComputerChoice ();
 console.log(computerSelection)
 
 game()
-function restartGame(){
 
-}
 function restartGame() {
     playerScore.textContent = 0;
     computerScore.textContent = 0;
