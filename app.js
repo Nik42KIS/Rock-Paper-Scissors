@@ -10,15 +10,21 @@ let playerSelection = '';
 let restart = document.querySelector('.restart')
 let computerSelection = getComputerChoice ();
 let score = document.querySelector('.score')
+let res = document.querySelector('.restart')
 console.log(computerSelection)
 
 game()
-
+res.addEventListener('click',() => {
+  restartGame()
+})
 function restartGame() {
     playerScore.textContent = 0;
     computerScore.textContent = 0;
     playerSelection = '';
     computerSelection = getComputerChoice();
+    console.log('restart');
+    score.innerHTML = `<div class="player">You:<span class="score__player">0</span></div>
+    <div class="computer">Computer:<span class="score__computer">0</span></div>`
   }
   
 function game() {
@@ -81,23 +87,7 @@ function getComputerChoice () {
 
 function playRound(playerSelection, computerSelection) {
 
-     if(playerScore.innerHTML == 5){
-        if(playerScore.innerHTML == 5){
-            playerScore.textContent = 0;
-            computerScore.textContent = 0;
-            wrapper.innerHTML = gameOver;
-            console.log('player win');
-            
-         }
-        else if(computerScore.innerHTML == 5){
-            playerScore.textContent = 0;
-            computerScore.textContent = 0;
-            wrapper.innerHTML = gameOver;
-            console.log('computer win');
-            
-        }
-    }
-    else if(playerSelection === computerSelection){
+     if(playerSelection === computerSelection){
         refreshComputerSelection()
     }
     else if(playerSelection === 'rock' && computerSelection === 'scissors'){
