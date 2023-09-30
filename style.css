@@ -1,29 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&family=Montserrat:wght@300;600&family=Playfair+Display:ital,wght@1,500;1,800;1,900&family=Poppins:wght@500;700&family=Quicksand:wght@300;700&family=Roboto:wght@300&display=swap');
 
+@font-face {
+  font-family: "Minecraft font";
+  src: url("./fonts/minecraft-ten-font-cyrillic.ttf");
+}
+
 *{
     margin: 0;
     padding: 0;
 }
 
+h1{
+  font-size: 70px;
+  text-align: center;
+}
 
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-image: url('./image/back.jpg');
+  font-family: Minecraft font, sans-serif;
+  background-image: url('./image/red-back.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  color: red;
 }
 
 .wrapper {
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.8); 
+  /* background-color: rgba(0, 0, 0, 0.2);  */
   padding: 20px;
   border-radius: 10px;
   margin: 50px auto;
   max-width: 900px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2); */
   
 }
 
@@ -42,23 +52,29 @@ body {
   justify-content: space-around;
 }
 
-button {
-  background-color: #007bff;
-  color: #fff;
+.rock, .paper, .scissors {
+  font-family: Minecraft font, sans-serif;
+  background-color: #080808;
+  color: red;
   border: none;
+  margin-top: 40px;
   border-radius: 4px;
   padding: 10px 20px;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background-color 0.3s;
-  font-size: 50px;
+  font-size: 26px;
+  transition: background-color 0.9s;
 }
 
-button:hover {
-  background-color: #0056b3;
+.rock:hover, .paper:hover, .scissors:hover {
+  background-color: #ff0000;
+  color: #080808;
 }
 
-button:focus {
-  outline: none;
+.restart{
+  font-family: Minecraft font, sans-serif;
+  background-color: red;
+  color: pink;
+  font-size: 20px;
+  padding: 5px 15px;
+  border-radius: 40px;
 }
