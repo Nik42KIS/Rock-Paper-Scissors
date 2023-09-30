@@ -9,6 +9,7 @@ let computerScore = document.querySelector('.score__computer');
 let playerSelection = '';
 let restart = document.querySelector('.restart')
 let computerSelection = getComputerChoice ();
+let score = document.querySelector('.score')
 console.log(computerSelection)
 
 game()
@@ -25,8 +26,10 @@ function game() {
       playerSelection = 'rock';
       playRound(playerSelection, computerSelection);
   
-      if (playerScore.innerHTML == 5 || computerScore.innerHTML == 5) {
-       setTimeout(()=>{restartGame()},1300) ;
+      if (playerScore.innerHTML == 5 ) {
+        score.textContent = 'You win'
+      } else if( computerScore.innerHTML == 5){
+        score.textContent = 'Computer win'
       }
     });
   
@@ -34,8 +37,10 @@ function game() {
       playerSelection = 'paper';
       playRound(playerSelection, computerSelection);
   
-      if (playerScore.innerHTML == 5 || computerScore.innerHTML == 5) {
-        setTimeout(()=>{restartGame()},2000)
+      if (playerScore.innerHTML == 5 ) {
+        score.textContent = 'You win'
+      } else if( computerScore.innerHTML == 5){
+        score.textContent = 'Computer win'
       }
     });
   
@@ -43,8 +48,10 @@ function game() {
       playerSelection = 'scissors';
       playRound(playerSelection, computerSelection);
   
-      if (playerScore.innerHTML == 5 || computerScore.innerHTML == 5) {
-        setTimeout(()=>{restartGame()},2000)
+      if (playerScore.innerHTML == 5 ) {
+        score.textContent = 'You win'
+      } else if( computerScore.innerHTML == 5){
+        score.textContent = 'Computer win'
       }
     });
   }
