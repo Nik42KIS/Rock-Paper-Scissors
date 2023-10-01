@@ -15,10 +15,15 @@ console.log(computerSelection)
 
 game()
 
-
+res.addEventListener('click',() => {
+  window.location.reload()
+  // score.innerHTML = `<div class="player">You: <span class="score__player">0</span></div>
+  // <div class="computer">Computer: <span class="score__computer">0</span></div>`
+})
   
 function game() {
 
+ 
 
   
     rock.addEventListener('click', () => {
@@ -109,14 +114,3 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-res.addEventListener('click',() => {
-  score.innerHTML = `<div class="player">You: <span class="score__player">0</span></div>
-  <div class="computer">Computer: <span class="score__computer">0</span></div>`
-  playerScore.textContent = 0;
-  computerScore.textContent = 0;
-  playerSelection = '';
-  computerSelection = getComputerChoice();
-  console.log('restart');
-
-  game()
-})
