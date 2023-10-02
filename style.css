@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&family=Montserrat:wght@300;600&family=Playfair+Display:ital,wght@1,500;1,800;1,900&family=Poppins:wght@500;700&family=Quicksand:wght@300;700&family=Roboto:wght@300&display=swap');
+
 
 @font-face {
   font-family: "Minecraft font";
@@ -50,6 +50,7 @@ body {
 .chooze {
   display: flex;
   justify-content: space-around;
+  position: relative;
 }
 
 .rock, .paper, .scissors {
@@ -65,16 +66,35 @@ body {
   transition: background-color 0.9s;
 }
 
+
+
 .rock:hover, .paper:hover, .scissors:hover {
   background-color: #ff0000;
   color: #080808;
+  font-size: 40px;
+}
+
+.rock:active, .paper:active, .scissors:active {
+background-color: #470505;
+border-bottom: 2px solid #470505;
 }
 
 .restart{
   font-family: Minecraft font, sans-serif;
   background-color: red;
-  color: pink;
+  color: rgb(85, 3, 16);
   font-size: 20px;
   padding: 5px 15px;
   border-radius: 40px;
+  transition: 1.1s ease-in-out;
+}
+
+.restart:hover{
+  border: 3px solid white;
+  border-radius: -67;
+  text-transform:inherit;
+  background-color: rgb(85, 3, 16);
+  color:#080808;
+  border-radius: 2px;
+  left: -50px;
 }
